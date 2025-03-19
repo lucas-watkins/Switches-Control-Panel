@@ -47,7 +47,7 @@ class LoginManager : Drawable() {
 
                 AppScope.launch {
                     if (user == Config.getUsername() && password == Config.getPassword()) {
-                        localStorage.setItem("loggedIn", "true")
+                        localStorage.setItem("password", password)
                         reloadPage()
                     } else {
                         js("alert('invalid login')")

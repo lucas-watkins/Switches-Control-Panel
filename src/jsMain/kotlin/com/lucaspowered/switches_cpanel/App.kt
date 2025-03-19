@@ -11,16 +11,19 @@ import io.kvision.panel.root
 import io.kvision.startApplication
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.asCoroutineDispatcher
+import kotlinx.coroutines.launch
 
 val AppScope = CoroutineScope(window.asCoroutineDispatcher())
 
 class App : Application() {
     override fun start() {
         root("kvapp") {
-            if (localStorage.getItem("loggedIn") == "true")
-                add(CPanel())
-            else
-                add(LoginManager())
+            AppScope.launch {
+                if (localStorage.getItem("password") == Config.getPassword())
+                    add(CPanel())
+                else
+                    add(LoginManager())
+            }
         }
     }
 }

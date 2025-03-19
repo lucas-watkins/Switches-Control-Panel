@@ -24,7 +24,7 @@ class CPanel : Drawable() {
             }
 
             hPanel(spacing = 10, alignItems = AlignItems.CENTER) {
-                add(Switch("http://1.1.1.1"))
+                add(Switch(0))
             }
 
             button("Logout").onClick {
