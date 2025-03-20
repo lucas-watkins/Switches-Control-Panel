@@ -17,6 +17,8 @@ actual class SwitchService : ISwitchService {
     override suspend fun getUrl(id: Int) = switches.find { it.id == id }?.url ?: "undefined"
 
     override suspend fun getDesc(id: Int) = switches.find {it.id == id}?.description ?: "undefined"
+
+    override suspend fun getCount() = switches.size
 }
 
 @Serializable

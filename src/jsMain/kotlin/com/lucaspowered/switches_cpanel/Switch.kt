@@ -22,8 +22,10 @@ import io.kvision.html.customTag
 
 class Switch(private val switchID: Int) : Drawable() {
 
-    private companion object {
-        val switchService = getService<ISwitchService>()
+    companion object {
+        private val switchService = getService<ISwitchService>()
+
+        suspend fun getCount(): Int = switchService.getCount()
     }
 
     override fun draw() {

@@ -13,6 +13,7 @@ import io.kvision.html.div
 import io.kvision.panel.hPanel
 import io.kvision.panel.vPanel
 import io.kvision.utils.px
+import kotlinx.coroutines.launch
 
 class CPanel : Drawable() {
     override fun draw() {
@@ -24,12 +25,30 @@ class CPanel : Drawable() {
             }
 
             hPanel(spacing = 10, alignItems = AlignItems.CENTER) {
-                add(Switch(0))
+                AppScope.launch {
+                    val count = Switch.getCount()
+                    if (count > 0) {
+                        for (i in 0..count - 1) {
+                            add(Switch(i))
+                        }
+                    } else {
+                        label("You Currently Don't Have Any Switches Set Up") {
+                            fontSize = 25.px
+                        }
+                    }
+                }
+                paddingBottom = 15.px
             }
 
-            button("Logout").onClick {
-                localStorage.clear()
-                reloadPage()
+            hPanel(spacing = 5) {
+                button("Logout").onClick {
+                    localStorage.clear()
+                    reloadPage()
+                }
+
+                button("Add Switch").onClick {
+                    console.log("Adding Switch")
+                }
             }
         }
     }

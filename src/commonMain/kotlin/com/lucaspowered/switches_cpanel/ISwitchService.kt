@@ -13,4 +13,6 @@ interface ISwitchService {
 
     /* Gets url or returns "undefined" */
     suspend fun getDesc(id: Int): String
+
+    suspend fun getCount(): Int
 }

@@ -4,5 +4,11 @@
     "name" : "Switch 1",
     "url" : "https://example.com",
     "description" : "Basic demo switch"
+  },
+  {
+    "id" : 1,
+    "name" : "Switch 2",
+    "url" : "https://example.com",
+    "description" : "Basic demo switch"
   }
 ]
