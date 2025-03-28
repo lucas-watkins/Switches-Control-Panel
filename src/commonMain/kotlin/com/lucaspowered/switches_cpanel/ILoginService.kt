@@ -6,4 +6,5 @@ import io.kvision.annotations.KVService
 interface ILoginService {
    suspend fun getUsername(): String
    suspend fun getPassword(): String
+   suspend fun configHasErrors(): Boolean
 }

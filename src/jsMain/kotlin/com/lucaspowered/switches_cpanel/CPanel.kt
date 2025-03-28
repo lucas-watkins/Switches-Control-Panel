@@ -5,11 +5,7 @@ import io.kvision.html.label
 import kotlinx.browser.localStorage
 import com.lucaspowered.switches_cpanel.jsutils.reloadPage
 import io.kvision.core.AlignItems
-import io.kvision.core.Background
-import io.kvision.core.Color
 import io.kvision.core.TextAlign
-import io.kvision.core.widget
-import io.kvision.html.div
 import io.kvision.panel.hPanel
 import io.kvision.panel.vPanel
 import io.kvision.utils.px
@@ -44,10 +40,6 @@ class CPanel : Drawable() {
                 button("Logout").onClick {
                     localStorage.clear()
                     reloadPage()
-                }
-
-                button("Add Switch").onClick {
-                    console.log("Adding Switch")
                 }
             }
         }

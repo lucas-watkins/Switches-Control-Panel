@@ -1,5 +1,4 @@
 package com.lucaspowered.switches_cpanel
-import kotlinx.serialization.Serializable
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Scope
 import org.springframework.stereotype.Service
@@ -20,6 +19,3 @@ actual class SwitchService : ISwitchService {
 
     override suspend fun getCount() = switches.size
 }
-
-@Serializable
-data class SwitchInfo(val id: Int, val name: String, val url: String, val description: String)

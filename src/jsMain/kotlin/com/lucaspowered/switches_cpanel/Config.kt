@@ -7,5 +7,5 @@ object Config {
 
     suspend fun getUsername() = loginService.getUsername()
     suspend fun getPassword() = loginService.getPassword()
-
+    suspend fun configHasErrors() = loginService.configHasErrors()
 }

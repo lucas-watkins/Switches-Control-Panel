@@ -3,22 +3,15 @@ package com.lucaspowered.switches_cpanel
 import io.kvision.core.AlignItems
 import io.kvision.core.Background
 import io.kvision.core.Color
-import io.kvision.core.onEvent
-import io.kvision.core.widget
 import io.kvision.html.button
 import io.kvision.html.div
-import io.kvision.html.h1
 import io.kvision.html.label
 import io.kvision.panel.vPanel
 import io.kvision.remote.getService
 import io.kvision.utils.px
 import kotlinx.coroutines.launch
-import com.lucaspowered.switches_cpanel.ISwitchService
 import io.kvision.html.ButtonSize
 import io.kvision.html.ButtonStyle
-import io.kvision.html.CustomTag
-import io.kvision.html.customTag
-
 
 class Switch(private val switchID: Int) : Drawable() {
 
@@ -63,6 +56,6 @@ class Switch(private val switchID: Int) : Drawable() {
     }
 
     private fun toggle() {
-        TODO()
+
     }
 }

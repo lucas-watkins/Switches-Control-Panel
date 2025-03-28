@@ -15,4 +15,5 @@ actual class LoginService : ILoginService {
 
     override suspend fun getUsername() = login.username
     override suspend fun getPassword() = login.password
+    override suspend fun configHasErrors() = KVApplication.configHasErrors
 }
