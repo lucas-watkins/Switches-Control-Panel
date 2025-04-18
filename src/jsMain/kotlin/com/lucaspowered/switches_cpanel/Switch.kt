@@ -2,6 +2,7 @@ package com.lucaspowered.switches_cpanel
 
 import io.kvision.core.AlignItems
 import io.kvision.core.Background
+import io.kvision.core.Col
 import io.kvision.core.Color
 import io.kvision.html.button
 import io.kvision.html.div
@@ -12,11 +13,13 @@ import io.kvision.utils.px
 import kotlinx.coroutines.launch
 import io.kvision.html.ButtonSize
 import io.kvision.html.ButtonStyle
+import io.kvision.panel.hPanel
 
 class Switch(private val switchID: Int) : Drawable() {
 
     companion object {
-        private val switchService = getService<ISwitchService>()
+        val switchService = getService<ISwitchService>()
+        val requestsService = getService<IRequestsService>()
 
         suspend fun getCount(): Int = switchService.getCount()
     }
@@ -43,19 +46,39 @@ class Switch(private val switchID: Int) : Drawable() {
                         fontSize = 15.px
                         paddingBottom = 25.px
                     }
+                    hPanel(spacing = 5) {
+                        button("On") {
+                            size = ButtonSize.SMALL
+                            style = ButtonStyle.PRIMARY
+                            background = Background(Color.name(Col.GREEN))
+                        }.onClick {
+                            console.log("Switch $switchID on")
+                            sendRequest("on")
+                        }
 
-                    button("Toggle"){
-                        size = ButtonSize.SMALL
-                        style = ButtonStyle.PRIMARY
-                    }.onClick {
-                        console.log("Switch $switchID toggled")
+                        button("Off") {
+                            size = ButtonSize.SMALL
+                            style = ButtonStyle.PRIMARY
+                            background = Background(Color.name(Col.RED))
+                        }.onClick {
+                            console.log("Switch $switchID off")
+                            sendRequest("off")
+                        }
+
+                        button("Toggle") {
+                            size = ButtonSize.SMALL
+                            style = ButtonStyle.PRIMARY
+                        }.onClick {
+                            console.log("Switch $switchID toggled")
+                            sendRequest("toggle")
+                        }
                     }
                 }
             }
         }
     }
 
-    private fun toggle() {
-
+    private fun sendRequest(mode: String) {
+        AppScope.launch { requestsService.httpGet("${switchService.getUrl(switchID)}/$mode") }
     }
 }

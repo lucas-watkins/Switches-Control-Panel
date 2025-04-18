@@ -2,13 +2,13 @@
   {
     "id" : 0,
     "name" : "Switch 1",
-    "url" : "https://example.com",
+    "url" : "http://localhost:9090",
     "description" : "Basic demo switch"
   },
   {
     "id" : 1,
     "name" : "Switch 2",
-    "url" : "https://example.com",
+    "url" : "http://localhost:9090",
     "description" : "Basic demo switch"
   }
 ]

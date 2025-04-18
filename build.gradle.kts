@@ -73,8 +73,7 @@ kotlin {
                 implementation("org.springframework.boot:spring-boot-devtools")
                 implementation("org.springframework.boot:spring-boot-starter-webflux")
                 implementation("org.springframework.boot:spring-boot-starter-security")
-                implementation("io.ktor:ktor-client-core:3.1.0")
-                implementation("io.ktor:ktor-client-cio:3.1.0")
+                implementation("com.squareup.okhttp3:okhttp:4.12.0")
             }
         }
         val jvmTest by getting {
